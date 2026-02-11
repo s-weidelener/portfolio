@@ -1,0 +1,460 @@
+/* ===============================================
+    1. RESET & BASIS
+   =============================================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* background-image: url(/img/hintergrund_1.jpg); */
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* background-attachment: fixed; */
+    /* z-index: -1; */
+    background-color: #0F0F0F;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+header {
+    width: 100%;
+    background: transparent;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 10;
+}
+
+main {
+    padding: 40px 20px;
+    margin-bottom: 60px;
+}
+
+/* ===============================================
+    FLASH-EFFEKT DEFINITION (FÜR KACHELN)
+   =============================================== */
+@keyframes boxFlash {
+    0% {
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    }
+    20% {
+        border-color: rgba(255, 255, 255, 1);
+        box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        border-color: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* ===============================================
+    2. NAVIGATION & DROPDOWN
+   =============================================== */
+header nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+}
+
+body header nav ul.haupt-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin: 20px auto;
+    padding: 0 25px;
+    height: 60px;
+    background: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: fit-content;
+}
+
+body header nav ul.haupt-nav li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+body header nav ul.haupt-nav li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+body header nav ul.haupt-nav li a:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* DROPDOWN LOGIK */
+body header nav ul.haupt-nav li.heraus {
+    position: relative;
+}
+
+body header nav ul.haupt-nav li.heraus ul.einAusklappen {
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: none; 
+    flex-direction: column;
+    min-width: 200px;
+    background: rgba(25, 25, 25, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 10px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    z-index: 2000;
+}
+
+body header nav ul.haupt-nav li.heraus:hover ul.einAusklappen {
+    display: flex;
+}
+
+/* ===============================================
+    3. PROJEKT-SECTION (HOME) - MIT FLASH
+   =============================================== */
+section {
+    background-color: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    text-align: center;
+}
+
+.projekt-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+    align-items: stretch; 
+}
+
+article {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    text-align: left;
+    transition: transform 0.3s ease-out, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Flash-Effekt für die Kacheln auf der Startseite */
+article:hover { 
+    transform: translateY(-8px);
+    background-color: rgba(255, 255, 255, 0.06);
+    animation: boxFlash 0.4s ease-out forwards;
+}
+
+.projekt-bild {
+    width: 100%;
+    height: 180px;
+    background: #2a2a2a;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    flex-shrink: 0; 
+}
+
+.projekt-bild img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+article p {
+    flex-grow: 1;
+    margin-bottom: 20px;
+    color: #bbb;
+}
+
+/* ===============================================
+    4. DETAILSEITE (LAYOUT-INSEL)
+   =============================================== */
+.layout-insel-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.layout-insel {
+    background-color: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 95%;
+    max-width: 1000px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+.detail-bild-container {
+    width: 100%;
+    max-height: 400px;
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.detail-bild {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.detail-text-box {
+    text-align: left;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+/* ===============================================
+    5. BUTTONS & CODE-CONTAINER 
+   =============================================== */
+.code-container {
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 30px; 
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.code-container:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.code-container pre {
+    text-align: left; 
+    width: 100%;
+    margin: 0; 
+    overflow-x: auto;
+}
+
+a.btn-more, 
+.copy-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.copy-btn {
+    margin-top: 30px; 
+}
+
+article a.btn-more {
+    align-self: center;
+    margin-top: auto;
+}
+
+a.btn-more:hover, 
+.copy-btn:hover {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.btn-back-wrapper {
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* ===============================================
+    6. FOOTER
+   =============================================== */
+footer {
+    margin-top: 50px;
+    padding-bottom: 30px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.9rem;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-nav a, .footer-social a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover, .footer-social a:hover {
+    color: #4CAF50; 
+}
+
+/* ===============================================
+    7. KONTAKT-SECTION
+   =============================================== */
+.kontakt-insel {
+    background-color: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 800px; 
+    margin: 60px auto;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.kontakt-insel:hover {
+    animation: boxFlash 0.4s ease-out forwards;
+}
+
+.kontakt-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.input-group {
+    display: flex;
+    gap: 15px;
+}
+
+.kontakt-form input, 
+.kontakt-form textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: #ffffff;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s ease;
+    resize: none;
+}
+
+.kontakt-form input:focus, 
+.kontakt-form textarea:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.kontakt-form button.btn-more {
+    background: rgba(255, 255, 255, 0.1); 
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: inherit;
+    font-size: 1rem;
+    align-self: center;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.kontakt-form button.btn-more:hover {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* ===============================================
+    8. RESPONSIVE DESIGN (Alle Media Queries)
+   =============================================== */
+
+/* Große Tablets & Kleine Laptops */
+@media (max-width: 1024px) {
+    .projekt-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Tablets & Große Smartphones */
+@media (max-width: 768px) {
+    .projekt-grid { grid-template-columns: 1fr; }
+    
+    body header nav ul.haupt-nav { 
+        flex-direction: column; 
+        height: auto; 
+        width: 90%;
+        border-radius: 20px; 
+    }
+    
+    .layout-insel { padding: 20px; }
+    .detail-bild-container { max-height: 250px; }
+
+    #kontakt form.kontakt-form button.btn-more {
+        width: 100%;
+        max-width: 300px;
+        margin: 25px auto;
+        display: block;
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+
+    #kontakt form.kontakt-form button.btn-more:active {
+        background-color: #ffffff;
+        color: #000000;
+        transform: scale(0.98);
+    }
+}
+
+/* Kleine Smartphones */
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+}
