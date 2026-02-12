@@ -66,7 +66,7 @@ header nav {
     justify-content: center;
 }
 
-body header nav ul.haupt-nav {
+body header nav ul.main-nav {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -83,14 +83,14 @@ body header nav ul.haupt-nav {
     width: fit-content;
 }
 
-body header nav ul.haupt-nav li {
+body header nav ul.main-nav li {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
 }
 
-body header nav ul.haupt-nav li a {
+body header nav ul.main-nav li a {
     color: #e0e0e0;
     text-decoration: none;
     padding: 0 20px;
@@ -102,17 +102,17 @@ body header nav ul.haupt-nav li a {
     white-space: nowrap;
 }
 
-body header nav ul.haupt-nav li a:hover {
+body header nav ul.main-nav li a:hover {
     color: #ffffff;
     transform: translateY(-2px);
 }
 
 /* DROPDOWN LOGIK */
-body header nav ul.haupt-nav li.heraus {
+body header nav ul.main-nav li.nav-item-dropdown {
     position: relative;
 }
 
-body header nav ul.haupt-nav li.heraus ul.einAusklappen {
+body header nav ul.main-nav li.nav-item-dropdown ul.dropdown-menu {
     position: absolute;
     top: 100%; 
     left: 50%;
@@ -128,7 +128,7 @@ body header nav ul.haupt-nav li.heraus ul.einAusklappen {
     z-index: 2000;
 }
 
-body header nav ul.haupt-nav li.heraus:hover ul.einAusklappen {
+body header nav ul.main-nav li.nav-item-dropdown:hover ul.dropdown-menu {
     display: flex;
 }
 
@@ -147,7 +147,7 @@ section {
     text-align: center;
 }
 
-.projekt-grid {
+.project-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
@@ -166,6 +166,12 @@ article {
     flex-direction: column;
 }
 
+article h3 {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 /* Flash-Effekt für die Kacheln auf der Startseite */
 article:hover { 
     transform: translateY(-8px);
@@ -173,7 +179,7 @@ article:hover {
     animation: boxFlash 0.4s ease-out forwards;
 }
 
-.projekt-bild {
+.project-image {
     width: 100%;
     height: 180px;
     background: #2a2a2a;
@@ -183,7 +189,7 @@ article:hover {
     flex-shrink: 0; 
 }
 
-.projekt-bild img {
+.project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -198,13 +204,13 @@ article p {
 /* ===============================================
     4. DETAILSEITE (LAYOUT-INSEL)
    =============================================== */
-.layout-insel-container {
+.island-layout-container {
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-.layout-insel {
+.island-layout {
     background-color: rgba(20, 20, 20, 0.85);
     backdrop-filter: blur(15px);
     border-radius: 16px;
@@ -216,26 +222,53 @@ article p {
     text-align: center;
 }
 
-.detail-bild-container {
-    width: 100%;
-    max-height: 400px;
-    margin: 30px 0;
+.detail-image-container {
+    position: relative;
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    align-items: center;
+    width: 100%;
+    margin: 30px 0;
     border-radius: 12px;
+    background-color: transparent;
 }
 
-.detail-bild {
+.detail-image {
+    display: block;
     max-width: 100%;
     height: auto;
-    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.image-credit {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    z-index: 999;
+    display: block;
+}
+
+.image-credit a {
+    color: #00d4ff;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.image-credit a:hover {
+    text-decoration: underline;
 }
 
 .detail-text-box {
     text-align: left;
     margin-bottom: 30px;
     color: #ccc;
+    line-height: 1.6;
 }
 
 /* ===============================================
@@ -336,7 +369,7 @@ footer {
 /* ===============================================
     7. KONTAKT-SECTION
    =============================================== */
-.kontakt-insel {
+.contact-island {
     background-color: rgba(20, 20, 20, 0.85);
     backdrop-filter: blur(15px);
     border-radius: 16px;
@@ -349,11 +382,11 @@ footer {
     transition: all 0.3s ease;
 }
 
-.kontakt-insel:hover {
+.contact-island:hover {
     animation: boxFlash 0.4s ease-out forwards;
 }
 
-.kontakt-form {
+.contact-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -365,8 +398,8 @@ footer {
     gap: 15px;
 }
 
-.kontakt-form input, 
-.kontakt-form textarea {
+.contact-form input, 
+.contact-form textarea {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
@@ -378,12 +411,12 @@ footer {
     resize: none;
 }
 
-.kontakt-form input:focus, 
-.kontakt-form textarea:focus {
+.contact-form input:focus, 
+.contact-form textarea:focus {
     border-color: rgba(255, 255, 255, 0.5);
 }
 
-.kontakt-form button.btn-more {
+.contact-form button.btn-more {
     background: rgba(255, 255, 255, 0.1); 
     color: #ffffff;
     border: 1.5px solid rgba(255, 255, 255, 0.3);
@@ -398,7 +431,7 @@ footer {
     transition: all 0.3s ease;
 }
 
-.kontakt-form button.btn-more:hover {
+.contact-form button.btn-more:hover {
     background: #ffffff;
     color: #000000;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
@@ -411,24 +444,24 @@ footer {
 
 /* Große Tablets & Kleine Laptops */
 @media (max-width: 1024px) {
-    .projekt-grid { grid-template-columns: repeat(2, 1fr); }
+    .project-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* Tablets & Große Smartphones */
 @media (max-width: 768px) {
-    .projekt-grid { grid-template-columns: 1fr; }
+    .project-grid { grid-template-columns: 1fr; }
     
-    body header nav ul.haupt-nav { 
+    body header nav ul.main-nav { 
         flex-direction: column; 
         height: auto; 
         width: 90%;
         border-radius: 20px; 
     }
     
-    .layout-insel { padding: 20px; }
-    .detail-bild-container { max-height: 250px; }
+    .island-layout { padding: 20px; }
+    .detail-image-container { max-height: 250px; }
 
-    #kontakt form.kontakt-form button.btn-more {
+    #contact form.contact-form button.btn-more {
         width: 100%;
         max-width: 300px;
         margin: 25px auto;
@@ -440,7 +473,7 @@ footer {
         font-size: 16px;
     }
 
-    #kontakt form.kontakt-form button.btn-more:active {
+    #contact form.contact-form button.btn-more:active {
         background-color: #ffffff;
         color: #000000;
         transform: scale(0.98);

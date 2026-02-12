@@ -1,6 +1,6 @@
 <footer>
-        <div class="layout-insel-container">
-            <section class="layout-insel footer-content">
+        <div class="island-layout-container">
+            <section class="island-layout footer-content">
                 <div class="footer-info">
                     <p>&copy; <?php echo date("Y"); ?> Sebastian – Mein Portfolio</p>
                     <p>Dies ist noch ein Placeholder</p>
@@ -8,8 +8,8 @@
                 
                 <nav class="footer-nav">
                     <ul>
-                        <li><a href="impressum.php">Impressum</a></li>
-                        <li><a href="datenschutz.php">Datenschutz</a></li>
+                        <li><a href="legal-notice.php">Impressum</a></li>
+                        <li><a href="privacy-policy.php">Datenschutz</a></li>
                     </ul>
                 </nav>
             </section>
@@ -30,14 +30,14 @@
         navigator.clipboard.writeText(codeText).then(() => {
             const originalText = btn.innerText;
             
-            // --- Erfolgs-Zustand ---
+            // --- Kopieren erfolgreich ---
             btn.innerText = 'Kopiert!';
             btn.style.setProperty('background-color', '#76c442', 'important');
             btn.style.setProperty('border-color', '#76c442', 'important');
             btn.style.setProperty('color', '#ffffff', 'important');
             
             setTimeout(() => {
-                // --- Zurück zum Standard ---
+                // --- Error ---
                 btn.innerText = originalText;
                 btn.style.removeProperty('background-color');
                 btn.style.removeProperty('border-color');

@@ -1,5 +1,5 @@
 <?php 
-include_once 'projektdaten.php'; 
+include_once 'project-data.php'; 
 ?>
 
 <nav>
@@ -9,22 +9,23 @@ include_once 'projektdaten.php';
         <span class="bar"></span>
     </div>
 
-    <ul class="haupt-nav">
+    <ul class="main-nav">
         <li><a href="index.php">Home</a></li>
         
-        <li class="heraus">
-            <a href="index.php#projekte">Projekte</a>
-            <ul class="einAusklappen">
-                <?php foreach ($projekte as $id => $p): ?>
+        <li class="nav-item-dropdown">
+            <a href="index.php#projects">Projekte</a>
+            <ul class="dropdown-menu">
+                <?php foreach ($projects as $id => $p): ?>
                     <li>
                         <a href="details.php?id=<?php echo $id; ?>">
-                            <?php echo htmlspecialchars($p['titel']); ?>
+                            <?php echo htmlspecialchars($p['title']); ?>
                         </a>
                     </li>
                 <?php endforeach; ?>
+                <?php unset($p); // Variable "putzen", damit sie nicht global stört ?>
             </ul>
         </li>
         
-        <li><a href="index.php#kontakt">Kontakt</a></li>
+        <li><a href="index.php#contact">Kontakt</a></li>
     </ul>
 </nav>

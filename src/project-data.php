@@ -1,15 +1,13 @@
 <?php
 // EOD um Probleme mit php beim copy von Codes zu verhindern (bsp.:"")
-$projekte = [
+$projects = [
     1 => [
-        "titel" => "Bankautomat",
-        "beschreibung" => "Ein Bankautomat ohne Datenbank simulieren.",
-        "bild" => "img/projekt4.jpg",
-        "sprache" => "language-python",
+        "title" => "Bankautomat",
+        "description" => "Ein Bankautomat ohne Datenbank simulieren.",
+        "image" => "img/projekt4.jpg",
+        "image_credit" => 'Image from <a href="https://unsplash.com/de/@artturijalli" target="_blank">Artturi Jalli</a> on <a href="https://unsplash.com/de/fotos/g5_rxRjvKmg" target="_blank">Unsplash</a>',
+        "language" => "language-python",
         "code" => <<<EOD
-Hier ist der Code aus deinem Bild in Textform, damit du ihn direkt kopieren und ausprobieren kannst:
-
-Python
 name = input("Wie ist dein Name?: ")
 kontostand = float(input(f"Hallo {name}, bitte nennen Sie mir Ihren aktuellen Kontostand: "))
 
@@ -46,10 +44,11 @@ while True:
 EOD
     ],
     2 => [
-        "titel" => "Mitgliedschaft",
-        "beschreibung" => "Berechnung der Gebühren mittels Python",
-        "bild" => "img/projekt4.jpg",
-        "sprache" => "language-css",
+        "title" => "Mitgliedschaft",
+        "description" => "Berechnung der Gebühren mittels Python",
+        "image" => "img/projekt4.jpg",
+        "image_credit" => 'Image from <a href="https://unsplash.com/de/@artturijalli" target="_blank">Artturi Jalli</a> on <a href="https://unsplash.com/de/fotos/g5_rxRjvKmg" target="_blank">Unsplash</a>',
+        "language" => "language-python",
         "code" => <<<EOD
 name = input("What is your name? \n"
              ":")
@@ -96,10 +95,11 @@ while True:
 EOD
     ], 
     3 => [
-        "titel" => "Passwort Evaluieren",
-        "beschreibung" => "Bewertung der Passwortstärke mittels Python.",
-        "bild" => "img/projekt4.jpg",
-        "sprache" => "language-python", 
+        "title" => "Passwort Evaluieren",
+        "description" => "Bewertung der Passwortstärke mittels Python.",
+        "image" => "img/projekt4.jpg",
+        "image_credit" => 'Image from <a href="https://unsplash.com/de/@artturijalli" target="_blank">Artturi Jalli</a> on <a href="https://unsplash.com/de/fotos/g5_rxRjvKmg" target="_blank">Unsplash</a>',
+        "language" => "language-python",
         "code" => <<<EOD
 
 def evaluate_password(password):
@@ -204,10 +204,11 @@ EOD
     ],
 
     4 => [
-        "titel" => "Notenliste",
-        "beschreibung" => "Notenberechnung mit Python.",
-        "bild" => "img/projekt4.jpg",
-        "sprache" => "language-python",
+        "title" => "Notenliste",
+        "description" => "Notenberechnung mit Python.",
+        "image" => "img/projekt4.jpg",
+        "image_credit" => 'Image from <a href="https://unsplash.com/de/@artturijalli" target="_blank">Artturi Jalli</a> on <a href="https://unsplash.com/de/fotos/g5_rxRjvKmg" target="_blank">Unsplash</a>',
+        "language" => "language-python",
         "code" => <<<EOD
 def berechne_durchschnitt(notEN_liste):
     if len(notEN_liste) == 0:
